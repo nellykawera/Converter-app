@@ -7,6 +7,7 @@ function TemperatureConverter() {
   const [fromUnit, setFromUnit] = useState('celsius');
   const [toUnit, setToUnit] = useState('fahrenheit');
   const [convertedValue, setConvertedValue] = useState(null);
+  const [roundOutput, setRoundOutput] = useState(false);
 
   const convertTemperature = () => {
     const inputTemperature = parseFloat(inputValue);
@@ -27,7 +28,11 @@ function TemperatureConverter() {
       } else {
         convertedTemp = inputTemperature;
       }
-      setConvertedValue(convertedTemp.toFixed(2));
+      if (roundOutput) {
+        setConvertedValue(convertedTemp.toFixed(2));
+      } else {
+        setConvertedValue(convertedTemp.toString());
+      }
     } else {
       setConvertedValue('Invalid input');
     }
@@ -82,6 +87,10 @@ function TemperatureConverter() {
         <div style={{ marginTop: '20px' }}>
           <button className="convert-button" onClick={convertTemperature} style={{ fontSize: '16px', backgroundColor: 'black', color: 'white', padding: '8px 16px', borderRadius: '4px', marginRight: '10px' }}>Convert</button>
           <button className="clear-button" onClick={clearInput} style={{ fontSize: '16px', backgroundColor: 'red', color: 'white', padding: '8px 16px', borderRadius: '4px' }}>Clear</button>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', color: 'white' }}>
+          <input type="checkbox" id="roundOutput" checked={roundOutput} onChange={() => setRoundOutput(!roundOutput)} style={{ marginRight: '10px' }} />
+          <label htmlFor="roundOutput" style={{ fontSize: '16px' }}>Round Output</label>
         </div>
         <div className="converted-result" style={{ fontSize: '18px', color: 'white', backgroundColor: 'rgba(255, 255, 255, 0.5)', padding: '10px', marginTop: '20px' }}>Converted Temperature: {convertedValue}</div>
       </div>

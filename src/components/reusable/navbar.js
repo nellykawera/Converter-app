@@ -5,8 +5,8 @@ const Navbar = () => {
         <nav className="navbar">
             <ul>
                 <li><Link to='/'>Distance Converter</Link></li>
-                <li><Link to='/temperature'>Temperature Converter</Link></li>
                 <li><Link to='/mass'>Mass Converter</Link></li>
+                <li><Link to='/temperature'>Temperature Converter</Link></li>
             </ul>
         </nav>
     )

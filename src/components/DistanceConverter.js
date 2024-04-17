@@ -49,54 +49,43 @@ function DistanceConverter() {
       <div className="converter-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'green', padding: '20px', borderRadius: '8px' }}>
         <h2 style={{ fontSize: '24px', color: 'white', backgroundColor: 'rgba(255, 255, 255, 0.5)', padding: '10px', marginBottom: '20px' }}>Distance Converter</h2>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-          <span style={{ fontSize: '18px', color: 'white' }}>Distance:</span>
+          <span style={{ fontSize: '24px', color: 'white' }}>Distance:</span>
           <input type="number" id="inputValue" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Enter distance" style={{ fontSize: '16px', width: '200px', padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }} />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '18px', marginBottom: '10px', color: 'white' }}>From:</span>
-            <div>
-              <input type="radio" id="meter" name="fromUnit" value="meter" checked={fromUnit === 'meter'} onChange={() => setFromUnit('meter')} />
-              <label htmlFor="meter" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Meter</label>
-            </div>
-            <div>
-              <input type="radio" id="kilometer" name="fromUnit" value="kilometer" checked={fromUnit === 'kilometer'} onChange={() => setFromUnit('kilometer')} />
-              <label htmlFor="kilometer" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Kilometer</label>
-            </div>
-            <div>
-              <input type="radio" id="mile" name="fromUnit" value="mile" checked={fromUnit === 'mile'} onChange={() => setFromUnit('mile')} />
-              <label htmlFor="mile" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Mile</label>
-            </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'white', marginRight: '10px' }}>From:</span>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input type="radio" id="meter" name="fromUnit" value="meter" checked={fromUnit === 'meter'} onChange={() => setFromUnit('meter')} />
+            <label htmlFor="meter" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginRight: '5px', marginBottom: '0px' }}>Meter</label>
+            <input type="radio" id="kilometer" name="fromUnit" value="kilometer" checked={fromUnit === 'kilometer'} onChange={() => setFromUnit('kilometer')} />
+            <label htmlFor="kilometer" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginRight: '5px', marginBottom: '0px' }}>Kilometer</label>
+            <input type="radio" id="mile" name="fromUnit" value="mile" checked={fromUnit === 'mile'} onChange={() => setFromUnit('mile')} />
+            <label htmlFor="mile" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginBottom: '0px' }}>Mile</label>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '18px', marginBottom: '10px', color: 'white' }}>To:</span>
-            <div>
-              <input type="radio" id="toMeter" name="toUnit" value="meter" checked={toUnit === 'meter'} onChange={() => setToUnit('meter')} />
-              <label htmlFor="toMeter" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Meter</label>
-            </div>
-            <div>
-              <input type="radio" id="toKilometer" name="toUnit" value="kilometer" checked={toUnit === 'kilometer'} onChange={() => setToUnit('kilometer')} />
-              <label htmlFor="toKilometer" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Kilometer</label>
-            </div>
-            <div>
-              <input type="radio" id="toMile" name="toUnit" value="mile" checked={toUnit === 'mile'} onChange={() => setToUnit('mile')} />
-              <label htmlFor="toMile" style={{ fontSize: '16px', marginLeft: '5px', color: 'white' }}>Mile</label>
-            </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px', alignItems: 'center' }}>
+          <span style={{ fontSize: '24px', color: 'white', marginRight: '10px' }}>To:</span>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input type="radio" id="toMeter" name="toUnit" value="meter" checked={toUnit === 'meter'} onChange={() => setToUnit('meter')} />
+            <label htmlFor="toMeter" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginRight: '5px', marginBottom: '0px' }}>Meter</label>
+            <input type="radio" id="toKilometer" name="toUnit" value="kilometer" checked={toUnit === 'kilometer'} onChange={() => setToUnit('kilometer')} />
+            <label htmlFor="toKilometer" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginRight: '5px', marginBottom: '0px' }}>Kilometer</label>
+            <input type="radio" id="toMile" name="toUnit" value="mile" checked={toUnit === 'mile'} onChange={() => setToUnit('mile')} />
+            <label htmlFor="toMile" style={{ fontSize: '16px', marginLeft: '5px', color: 'white', marginBottom: '0px' }}>Mile</label>
           </div>
         </div>
         <div style={{ marginTop: '20px' }}>
           <button className="convert-button" onClick={convertDistance} style={{ fontSize: '16px', backgroundColor: 'black', color: 'white', padding: '8px 16px', borderRadius: '4px', marginRight: '10px' }}>Convert</button>
           <button className="clear-button" onClick={clearInput} style={{ fontSize: '16px', backgroundColor: 'red', color: 'white', padding: '8px 16px', borderRadius: '4px' }}>Clear</button>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', color: 'white' }}>
-          <input type="checkbox" id="roundOutput" checked={roundOutput} onChange={() => setRoundOutput(!roundOutput)} style={{ marginRight: '10px' }} />
-          <label htmlFor="roundOutput" style={{ fontSize: '16px' }}>Round Output</label>
-        </div>
         <div className="converted-result" style={{ fontSize: '18px', color: 'white', backgroundColor: 'rgba(255, 255, 255, 0.5)', padding: '10px', marginTop: '20px' }}>Converted Distance: {convertedValue}</div>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', color: 'white' }}>
+          <label htmlFor="roundOutput" style={{ fontSize: '16px', marginRight: '10px' }}>Round Output</label>
+          <input type="checkbox" id="roundOutput" checked={roundOutput} onChange={() => setRoundOutput(!roundOutput)} style={{ marginLeft: '10px' }} />
+        </div>
       </div>
     </div>
   );
 }
 
 export default DistanceConverter;
-

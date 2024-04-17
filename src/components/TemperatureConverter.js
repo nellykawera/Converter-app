@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import backgroundImage from '../images/DistanceConverter.jpeg';
-import slimImage from '../images/distance_white.png';
+import backgroundImage from '../images/TemperatureConverter.avif';
+import slimImage from '../images/temperature_white.png';
 
 function TemperatureConverter() {
   const [inputValue, setInputValue] = useState('');
